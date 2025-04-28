@@ -1,0 +1,46 @@
+/* Estilos generales para el formulario */
+.formulario {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    margin: 20px auto;
+  }
+  
+  /* Estilo de los campos de entrada */
+  .input-field {
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    transition: border 0.3s ease;
+  }
+  
+  /* Estilo de los campos cuando están en foco */
+  .input-field:focus {
+    border-color: #820e6f; /* Color del borde cuando se enfoca */
+  }
+  
+  /* Estilo del botón de envío */
+  .submit-btn {
+    padding: 12px;
+    background-color: #820e6f; /* Color del botón */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Estilo del botón cuando se pasa el ratón */
+  .submit-btn:hover {
+    background-color: #b0f5c1; /* Color más claro al pasar el ratón */
+  }
+  
