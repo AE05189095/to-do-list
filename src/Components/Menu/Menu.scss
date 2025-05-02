@@ -1,41 +1,40 @@
 /* Estilos generales para el menú */
 .menu {
-    background-color: #333; /* Fondo oscuro */
-    color: white; /* Texto blanco */
-    padding: 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Estilo de los elementos del menú */
-  .menu-item {
-    color: white;
-    padding: 10px 15px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .menu-item:hover {
-    background-color: #444; /* Color al pasar el ratón */
-  }
-  
-  /* Estilo para un menú horizontal (puedes modificarlo según el diseño) */
-  .menu-items-container {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-  }
-  
-  /* Estilos para un logo o título si lo necesitas */
-  .menu-logo {
-    font-size: 24px;
-    font-weight: bold;
-    color: #fff;
-    margin-right: 20px;
-  }
-  
+  background-color: #0000; /* Fondo oscuro */
+  color: white; /* Texto blanco */
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo de los elementos del menú */
+.menu-item {
+  color: white;
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.menu-item:hover {
+  background-color: #444; /* Color al pasar el ratón */
+}
+
+/* Estilo para un menú horizontal (puedes modificarlo según el diseño) */
+.menu-items-container {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+/* Estilos para un logo o título si lo necesitas */
+.menu-logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+  margin-right: 20px;
+}

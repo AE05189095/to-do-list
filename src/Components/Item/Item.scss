@@ -1,12 +1,35 @@
-$primary: #b0f5c1;
-$secondary: #820e6f;
+// Definir los colores
+$primary: #5d82d0;  // Color de fondo para el card
+$secondary: #722866; // Color para el botón de editar
+$danger: #e74c3c;    // Color para el botón de eliminar (rojo)
+$third: #D1D5FF; // Color del fondo del botón de Editar
 
-
+// Estilo de la tarjeta (card)
 .card {
     background-color: $primary;
-    margin: 30px;
+    margin-top: 30px;
 }
-.btn-info {
-    background-color: $secondary;
-    border-color: $secondary;
+
+// Estilo para el botón de Editar (btn-editar)
+.btn-editar {
+    background-color: $secondary; // Color para el fondo del botón
+    border-color: $secondary;     // Color del borde
+    color: white;                 // Texto blanco
+
+    &:hover {
+        background-color: lighten($secondary, 10%); // Ligeramente más claro al pasar el ratón
+        border-color: lighten($secondary, 10%);
+    }
+}
+
+// Estilo para el botón de Eliminar (btn-eliminar)
+.btn-eliminar {
+    background-color: $danger;    // Color rojo para eliminar
+    border-color: $danger;        // Color del borde
+    color: white;                 // Texto blanco
+
+    &:hover {
+        background-color: darken($danger, 10%); // Oscurecer al pasar el ratón
+        border-color: darken($danger, 10%);
+    }
 }
