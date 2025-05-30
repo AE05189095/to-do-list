@@ -1,35 +1,38 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { addTodo } from '../../reducers/todoSlice'; // Asegúrate de que esta ruta sea correcta
+import { addGoalToAPI } from '../../reducers/goalsAPI';
 import './Formulario.scss';
 
 function Formulario() {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [deadline, setDeadline] = useState('');
-  
-  const dispatch = useDispatch();
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [successMsg, setSuccessMsg] = useState(null);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
+    setError(null);
+    setSuccessMsg(null);
 
-    // Crear la tarea con un id único (puedes usar Date.now() para generar un id)
-    const newTask = {
-      id: Date.now(),
-      name,
-      description,
-      deadline,
-    };
-
-    // Despachar la acción para agregar la tarea
-    dispatch(addTodo(newTask));
-
-    // Limpiar los campos del formulario
-    setName('');
-    setDescription('');
-    setDeadline('');
+    try {
+      await addGoalToAPI({
+        title: name,
+        description,
+        dueDate: deadline,
+      });
+      setSuccessMsg('Meta agregada correctamente');
+      setName('');
+      setDescription('');
+      setDeadline('');
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -41,6 +44,7 @@ function Formulario() {
           placeholder="Ej: Terminar proyecto final"
           value={name}
           onChange={(e) => setName(e.target.value)}
+          required
         />
       </Form.Group>
 
@@ -61,12 +65,16 @@ function Formulario() {
           type="date"
           value={deadline}
           onChange={(e) => setDeadline(e.target.value)}
+          required
         />
       </Form.Group>
 
-      <Button variant="primary" type="submit" className="submit-btn">
-        Agregar Tarea
+      <Button variant="primary" type="submit" className="submit-btn" disabled={loading}>
+        {loading ? 'Agregando...' : 'Agregar Tarea'}
       </Button>
+
+      {error && <p style={{ color: 'red', marginTop: '10px' }}>{error}</p>}
+      {successMsg && <p style={{ color: 'green', marginTop: '10px' }}>{successMsg}</p>}
     </Form>
   );
 }
